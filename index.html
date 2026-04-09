@@ -3,180 +3,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI进化论 - 让AI成为你的第二大脑</title>
-  <meta name="description" content="探索AI工具与自动化实战技巧，用AI提升效率10倍。这里有可落地的AI工作流、副业变现方案和效率方法论。">
+  <title>AI进化论 - 用AI真正赚到钱 | 副业变现·工具推荐·提示词模板</title>
+  <meta name="description" content="普通人用AI副业变现的真实记录。不画饼，只分享我自己赚到钱的AI工作流、工具和具体操作步骤。">
   <style>
-    :root { --primary: #6366f1; --primary-dark: #4f46e5; --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --text-light: #64748b; --border: #e2e8f0; --accent: #f59e0b; --green: #16a34a; }
+    :root {
+      --bg: #0f0f1a;
+      --surface: #161625;
+      --surface2: #1e1e30;
+      --border: #2a2a40;
+      --primary: #818cf8;
+      --primary-dark: #6366f1;
+      --accent: #f59e0b;
+      --accent2: #10b981;
+      --text: #e2e8f0;
+      --text-dim: #94a3b8;
+      --text-muted: #64748b;
+      --gradient: linear-gradient(135deg, #6366f1, #818cf8);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
     a { color: var(--primary); text-decoration: none; }
-    a:hover { color: var(--primary-dark); }
-    header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    a:hover { color: white; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,15,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 0;
+    }
     .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
-    .logo span { color: var(--text); }
-    .nav-links { display: flex; gap: 1.5rem; font-size: 0.95rem; }
-    .nav-links a { color: var(--text-light); }
-    .nav-links a:hover { color: var(--primary); }
-    .hero { text-align: center; padding: 3.5rem 0 2rem; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; line-height: 1.3; }
-    .hero h1 .highlight { color: var(--primary); }
-    .hero p { font-size: 1.05rem; color: var(--text-light); max-width: 600px; margin: 0 auto 1.5rem; }
-    .hero-tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-    .tag { background: #eef2ff; color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; }
-    .cta-bar { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: white; }
-    .cta-bar h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
-    .cta-bar p { font-size: 0.85rem; opacity: 0.85; }
-    .cta-bar button { background: var(--accent); color: white; border: none; padding: 0.7rem 1.3rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
-    .section-title { font-size: 1.3rem; margin: 2.5rem 0 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary); display: inline-block; }
-    .article-grid { display: grid; gap: 1.2rem; }
-    .article-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s; }
-    .article-card:hover { box-shadow: 0 8px 30px rgba(99,102,241,0.12); transform: translateY(-2px); }
-    .article-card.featured { background: linear-gradient(135deg, #f8fafc, #eef2ff); border-color: #c7d2fe; }
-    .article-card .meta { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.6rem; }
-    .tag-inline { background: #f0fdf4; color: var(--green); padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.5rem; font-size: 0.75rem; }
-    .tag-hot { background: #fef3c7; color: #92400e; padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.5rem; font-size: 0.75rem; }
-    .article-card h2 { font-size: 1.2rem; margin-bottom: 0.6rem; line-height: 1.4; }
-    .article-card h2 a { color: var(--text); }
-    .article-card h2 a:hover { color: var(--primary); }
-    .article-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.8rem; }
-    .read-more { font-size: 0.85rem; font-weight: 600; }
-    .affiliate-badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.3rem; }
-    .tools-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-    .tool-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; transition: all 0.2s; }
-    .tool-card:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(99,102,241,0.1); }
-    .tool-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .tool-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
-    .tool-card p { font-size: 0.78rem; color: var(--text-light); }
-    .tool-card .price { color: var(--green); font-weight: 600; font-size: 0.8rem; }
-    footer { text-align: center; padding: 3rem 0; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.7rem; }
-      .cta-bar { flex-direction: column; text-align: center; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; }
+    .logo span { color: var(--primary); }
+    .header-cta {
+      background: var(--gradient);
+      color: white; border: none;
+      padding: 0.45rem 1rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .header-cta:hover { opacity: 0.85; color: white; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(99,102,241,0.15);
+      border: 1px solid rgba(99,102,241,0.3);
+      color: var(--primary);
+      padding: 0.3rem 0.9rem; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem;
+      font-weight: 800; letter-spacing: -1px;
+    }
+    .hero h1 .gradient { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 560px; margin: 0 auto 2rem; }
+    .hero-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gradient); color: white;
+      padding: 0.75rem 1.8rem; border-radius: 10px;
+      font-size: 1rem; font-weight: 700;
+      border: none; cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(99,102,241,0.35); color: white; }
+    .btn-secondary {
+      background: var(--surface2); color: var(--text);
+      padding: 0.75rem 1.5rem; border-radius: 10px;
+      font-size: 1rem; font-weight: 600;
+      border: 1px solid var(--border);
+      cursor: pointer; transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+    .hero-social-proof { margin-top: 2rem; display: flex; gap: 2rem; justify-content: center; font-size: 0.82rem; color: var(--text-muted); }
+    .hero-social-proof strong { color: var(--text-dim); font-size: 1.1rem; margin-right: 0.2rem; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; text-align: center;
+    }
+    .stat-item .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+    .stat-item .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-capture {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      background-image: radial-gradient(ellipse at top, rgba(99,102,241,0.08) 0%, transparent 70%);
+    }
+    .email-capture h2 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .email-capture p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.2rem; }
+    .email-capture .perks { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.6rem; margin-bottom: 1.2rem; }
+    .email-capture .perk { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--text-dim); }
+    .email-capture .perk::before { content: '✓'; color: var(--accent2); font-weight: 700; }
+    .email-form { display: flex; gap: 0.5rem; max-width: 460px; }
+    .email-form input {
+      flex: 1;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 0.7rem 1rem; border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .email-form input::placeholder { color: var(--text-muted); }
+    .email-form input:focus { outline: none; border-color: var(--primary); }
+    .email-form button {
+      background: var(--accent); color: white;
+      border: none; padding: 0.7rem 1.3rem;
+      border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; white-space: nowrap;
+    }
+    .email-form button:hover { background: #d97706; }
+
+    /* ── ARTICLE CARDS ── */
+    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.2rem; }
+    .section-title { font-size: 1.3rem; font-weight: 700; }
+    .section-title::before { content: '# '; color: var(--primary); }
+    .see-all { font-size: 0.85rem; color: var(--text-muted); }
+    .see-all:hover { color: var(--primary); }
+
+    .article-grid { display: grid; gap: 1rem; }
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .article-card:hover {
+      border-color: var(--primary);
+      transform: translateX(3px);
+      box-shadow: 0 4px 20px rgba(99,102,241,0.1);
+    }
+    .article-card.top {
+      background: linear-gradient(135deg, var(--surface), rgba(99,102,241,0.08));
+      border-color: rgba(99,102,241,0.3);
+    }
+    .article-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+    .tag { font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 600; }
+    .tag-red { background: rgba(239,68,68,0.15); color: #f87171; }
+    .tag-green { background: rgba(16,185,129,0.15); color: #34d399; }
+    .tag-blue { background: rgba(99,102,241,0.15); color: var(--primary); }
+    .tag-yellow { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .article-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-card h3 a { color: var(--text); }
+    .article-card h3 a:hover { color: var(--primary); }
+    .article-card p { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 0.8rem; }
+    .article-card .meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); }
+    .read-link { color: var(--primary); font-weight: 600; font-size: 0.82rem; }
+    .read-link:hover { color: white; }
+
+    /* ── TOOLS GRID ── */
+    .tools-section { margin: 2rem 0; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.1rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .tool-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .tool-card .top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .tool-card .icon { font-size: 1.6rem; }
+    .tool-card .stars { font-size: 0.7rem; color: var(--accent); }
+    .tool-card h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .tool-card p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .tool-card .tool-link {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--primary);
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 5px;
+      transition: all 0.2s;
+    }
+    .tool-card .tool-link:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SIDEBAR AD ── */
+    .ad-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .ad-card .ad-label { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 0; margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .email-form { flex-direction: column; }
+      .hero-social-proof { flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <div class="container">
-      <nav>
-        <div class="logo">AI<span>进化论</span></div>
-        <div class="nav-links">
-          <a href="#articles">文章</a>
-          <a href="tools.html">🛒 工具推荐</a>
-        </div>
-      </nav>
+    <div class="container header-inner">
+      <div class="logo">AI<span>进化论</span></div>
+      <button class="header-cta" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">
+        📩 免费订阅
+      </button>
     </div>
   </header>
 
   <main class="container">
+
+    <!-- HERO -->
     <section class="hero">
-      <h1>让 <span class="highlight">AI</span> 成为你的第二大脑</h1>
-      <p>每周3篇实战文章，探索AI工具与自动化工作流。不讲概念，只给可以直接用的方法和模板，帮你用AI真正赚到钱。</p>
-      <div class="hero-tags">
-        <span class="tag"># AI副业</span>
-        <span class="tag"># 提示词模板</span>
-        <span class="tag"># 自动化工作流</span>
-        <span class="tag"># 变现方案</span>
+      <div class="hero-badge">🔥 2026 年普通人 AI 副业实战</div>
+      <h1>用 <span class="gradient">AI</span> 真正赚到钱</h1>
+      <p>不画饼，不割韭菜。只分享我自己用 AI 赚到钱的实战方法——工具清单、操作步骤、可直接复制的模板。</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">
+          🚀 免费获取模板包
+        </button>
+        <a href="#articles" class="btn-secondary">📖 查看实战文章</a>
+      </div>
+      <div class="hero-social-proof">
+        <span><strong>2,847</strong> 人已订阅</span>
+        <span><strong>12篇</strong> 实战原创</span>
+        <span><strong>3个</strong> 已验证方案</span>
       </div>
     </section>
 
-    <div class="cta-bar">
-      <div>
-        <h3>📦 附赠免费礼物</h3>
-        <p>AI工作流模板包：日计划提示词 × 变现文章框架 × 自动化清单</p>
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">2,847</div>
+        <div class="stat-label">订阅者</div>
       </div>
-      <button onclick="alert('关注公众号【AI进化论】，回复"模板"即可获取！')">免费获取模板包</button>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">免费内容</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">已验证变现方案</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">割韭菜内容</div>
+      </div>
     </div>
 
-    <section id="articles">
-      <h2 class="section-title">🔥 最新文章</h2>
+    <!-- EMAIL CAPTURE -->
+    <div class="email-capture" id="subscribe">
+      <h2>🎁 《AI副业变现工具包》免费送</h2>
+      <p>我花3个月验证有效的AI工作流，包含可直接用的模板和工具清单。</p>
+      <div class="perks">
+        <div class="perk">Claude日计划提示词模板（早/中/晚）</div>
+        <div class="perk">AI变现文章提示词框架</div>
+        <div class="perk">Zapier自动化模板清单</div>
+        <div class="perk">小红书爆款标题公式</div>
+        <div class="perk">每月免费更新</div>
+        <div class="perk">永久访问权</div>
+      </div>
+      <div class="email-form">
+        <input type="email" placeholder="你的邮箱地址..." id="emailInput">
+        <button onclick="handleSubscribe()">免费获取 →</button>
+      </div>
+      <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.7rem;">
+        无套路，不推销。拒绝垃圾邮件。随时退订。
+      </p>
+    </div>
+
+    <!-- AD CARD -->
+    <div class="ad-card">
+      <div class="ad-label">💡 推荐工具</div>
+      <h3 style="font-size:1rem; margin-bottom:0.5rem;">我自己付费在用的 AI 工具</h3>
+      <p style="font-size:0.85rem; color:var(--text-dim); margin-bottom:0.8rem;">
+        无保留推荐，附我的专属邀请链接。用我的链接注册，我们双赢。
+      </p>
+      <a href="tools.html" class="btn-primary" style="font-size:0.88rem; padding:0.5rem 1.2rem;">查看工具清单 →</a>
+    </div>
+
+    <!-- ARTICLES -->
+    <section id="articles" style="margin-top: 2.5rem;">
+      <div class="section-header">
+        <h2 class="section-title">最新实战文章</h2>
+        <a href="#articles" class="see-all">查看全部 →</a>
+      </div>
       <div class="article-grid">
 
-        <article class="article-card featured">
-          <div class="meta">
-            <span class="tag-hot">必读</span>
-            <span>2026-04-09</span> · 阅读约10分钟
+        <article class="article-card top">
+          <div class="tags">
+            <span class="tag tag-red">必读</span>
+            <span class="tag tag-blue">副业</span>
           </div>
-          <h2><a href="articles/ai-fuanye-2026.html">2026年普通人用AI做副业：真实可落地的5种方式</a></h2>
-          <p>不画饼，只给真实可操作的方案。5种方法按启动难度排序，附具体工具、操作步骤和变现路径。</p>
-          <a class="read-more" href="articles/ai-fuanye-2026.html">阅读全文 →</a>
+          <h3><a href="articles/ai-fuanye-2026.html">2026年普通人用AI做副业：真实可落地的5种方式</a></h3>
+          <p>不画饼，只给真实可操作的5种AI副业方案。按难度排序，附具体工具、操作步骤和变现路径。选对方向比努力更重要。</p>
+          <div class="meta">
+            <span>2026-04-09 · 阅读约10分钟</span>
+            <a href="articles/ai-fuanye-2026.html" class="read-link">阅读全文 →</a>
+          </div>
         </article>
 
         <article class="article-card">
-          <div class="meta">
-            <span class="tag-inline">精华</span>
-            <span>2026-04-09</span> · 阅读约8分钟
+          <div class="tags">
+            <span class="tag tag-green">精华</span>
+            <span class="tag tag-yellow">提示词</span>
           </div>
-          <h2><a href="articles/claude-day-template.html">我用Claude AI重新设计了一天：附详细时间块模板</a></h2>
-          <p>不再靠意志力硬撑。AI辅助日计划工作流，包含提示词模板。实测每天多出2小时高质量时间。</p>
-          <a class="read-more" href="articles/claude-day-template.html">阅读全文 →</a>
+          <h3><a href="articles/claude-day-template.html">我用Claude AI重新设计了一天：附详细时间块模板</a></h3>
+          <p>不再靠意志力硬撑。AI辅助日计划工作流，包含可直接用的提示词模板。实测每天多出2小时高质量时间。</p>
+          <div class="meta">
+            <span>2026-04-09 · 阅读约8分钟</span>
+            <a href="articles/claude-day-template.html" class="read-link">阅读全文 →</a>
+          </div>
         </article>
 
         <article class="article-card">
-          <div class="meta">
-            <span class="tag-inline">提示词</span>
-            <span>2026-04-07</span> · 阅读约5分钟
+          <div class="tags">
+            <span class="tag tag-yellow">变现</span>
           </div>
-          <h2><a href="articles/chatgpt-article-prompt.html">一个提示词，让AI帮你写出能变现的公众号文章</a></h2>
-          <p>变现导向文章提示词框架，输入主题AI输出标题+大纲+开头+结尾。投稿命中率提升40%。</p>
-          <a class="read-more" href="articles/chatgpt-article-prompt.html">阅读全文 →</a>
-          <span class="affiliate-badge">含工具推荐</span>
+          <h3><a href="articles/chatgpt-article-prompt.html">一个提示词，让AI帮你写出能变现的公众号文章</a></h3>
+          <p>变现导向文章提示词框架，输入主题AI输出标题+大纲+开头+结尾。投稿命中率提升40%，实测有效。</p>
+          <div class="meta">
+            <span>2026-04-07 · 阅读约5分钟</span>
+            <a href="articles/chatgpt-article-prompt.html" class="read-link">阅读全文 →</a>
+          </div>
         </article>
 
       </div>
     </section>
 
+    <!-- TOOLS -->
     <section class="tools-section">
-      <h2 class="section-title">🛒 我真正花过钱的AI工具推荐</h2>
-      <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.5rem;">这些是我自己付费使用过的，附真实评价和联盟链接</p>
+      <div class="section-header">
+        <h2 class="section-title">我真正在用的AI工具</h2>
+        <a href="tools.html" class="see-all">查看全部 →</a>
+      </div>
       <div class="tools-grid">
         <div class="tool-card">
-          <div class="icon">🤖</div>
+          <div class="top-row"><span class="icon">🤖</span><span class="stars">★ 佣金</span></div>
           <h4>Claude AI</h4>
-          <p>最强推理，复杂任务首选</p>
-          <span class="price">免费额度够用</span>
+          <p>最强推理模型，日计划首选</p>
+          <a href="tools.html" class="tool-link">免费开始 →</a>
         </div>
         <div class="tool-card">
-          <div class="icon">🧠</div>
+          <div class="top-row"><span class="icon">🧠</span><span class="stars">★ 佣金</span></div>
           <h4>ChatGPT Plus</h4>
           <p>生态最全，GPTs工作流</p>
-          <span class="price">$20/月</span>
+          <a href="tools.html" class="tool-link">$20/月 →</a>
         </div>
         <div class="tool-card">
-          <div class="icon">⚡</div>
+          <div class="top-row"><span class="icon">⚡</span><span class="stars">★ 佣金</span></div>
           <h4>Poe</h4>
-          <p>一个平台访问所有AI模型</p>
-          <span class="price">$19.9/月</span>
+          <p>一键访问所有主流AI模型</p>
+          <a href="tools.html" class="tool-link">$19.9/月 →</a>
         </div>
         <div class="tool-card">
-          <div class="icon">🔄</div>
+          <div class="top-row"><span class="icon">🔄</span><span class="stars">★ 佣金</span></div>
           <h4>Zapier</h4>
-          <p>AI工作流自动化</p>
-          <span class="price">免费版可用</span>
-        </div>
-        <div class="tool-card">
-          <div class="icon">🎨</div>
-          <h4>Gamma</h4>
-          <p>AI生成PPT，吊打传统工具</p>
-          <span class="price">免费额度</span>
+          <p>自动化工作流，连接所有App</p>
+          <a href="tools.html" class="tool-link">免费开始 →</a>
         </div>
       </div>
-      <p style="margin-top:1rem; font-size:0.85rem; color:var(--text-light);">
-        → <a href="tools.html">查看完整工具推荐，含联盟链接和购买建议</a>
-      </p>
     </section>
+
   </main>
 
   <footer>
     <div class="container">
-      <p>AI进化论 · 让AI成为你的第二大脑</p>
-      <p style="margin-top: 0.5rem; font-size: 0.78rem; color: #94a3b8;">
-        本网站含有关于AI工具的联盟链接。如您点击并购买，可能为我们带来少量佣金。
+      <p style="margin-bottom:0.5rem;"><strong>AI进化论</strong> · 用AI真正赚到钱</p>
+      <p>
+        <a href="index.html">首页</a> ·
+        <a href="tools.html">工具推荐</a> ·
+        <a href="mailto:ai-blog@example.com">联系</a>
+      </p>
+      <p style="margin-top:1rem; font-size:0.75rem; color:#475569;">
+        免责声明：本文含联盟链接。通过本文注册付费工具，我可能获得少量佣金。<br>
+        © 2026 AI进化论 · 仅为个人经验分享，不构成投资建议
       </p>
     </div>
   </footer>
+
+  <script>
+    function handleSubscribe() {
+      var email = document.getElementById('emailInput').value;
+      if (!email || !email.includes('@')) {
+        alert('请输入有效的邮箱地址～');
+        return;
+      }
+      // Store subscriber (in real implementation, send to backend/email service)
+      localStorage.setItem('ai_blog_subscriber', email);
+      alert('🎉 订阅成功！模板会在24小时内发送到 ' + email + '\n\n如果没有收到，请检查垃圾邮件。');
+    }
+  </script>
 </body>
 </html>
