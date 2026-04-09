@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我用Claude AI重新设计了一天：附详细时间块模板 | AI进化论</title>
+  <meta name="description" content="不再靠意志力硬撑。把我用了3个月的AI辅助日计划工作流分享给你，包含提示词模板和具体执行步骤。实测每天多出2小时高质量时间。">
+  <style>
+    :root { --primary: #6366f1; --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --text-light: #64748b; --border: #e2e8f0; --accent: #f59e0b; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+    a { color: var(--primary); text-decoration: none; }
+    header { padding: 2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+    .logo a { color: var(--primary); }
+    h1 { font-size: 1.9rem; line-height: 1.3; margin-bottom: 1rem; }
+    .meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .meta span { margin-right: 1rem; }
+    h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--text); }
+    h3 { font-size: 1.15rem; margin: 1.5rem 0 0.6rem; }
+    p { margin-bottom: 1.2rem; font-size: 1rem; }
+    ul, ol { margin: 1rem 0 1.5rem 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    .prompt-box { background: #f1f5f9; border-left: 4px solid var(--primary); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    .tip { background: #fef3c7; border: 1px solid #fcd34d; padding: 1rem 1.2rem; border-radius: 8px; margin: 1.5rem 0; }
+    .tip strong { color: #92400e; }
+    .cta { background: linear-gradient(135deg, var(--primary), #4f46e5); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; margin: 2rem 0; }
+    .cta h3 { color: white; margin-bottom: 0.5rem; }
+    .cta a { color: white; font-weight: 700; }
+    code { background: #f1f5f9; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.88em; }
+    .related { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related h3 { margin-bottom: 1rem; }
+    .related ul { list-style: none; margin-left: 0; }
+    .related li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    footer { text-align: center; padding: 2rem 0; margin-top: 3rem; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="../index.html">← AI进化论</a></div>
+  </header>
+
+  <article>
+    <h1>我用Claude AI重新设计了我的一天：附详细时间块模板</h1>
+    <div class="meta">
+      <span>📅 2026-04-09</span>
+      <span>⏱️ 阅读约8分钟</span>
+      <span>🏷️ 效率工具 / 工作流</span>
+    </div>
+
+    <p>我曾经是个"意志力信徒"——每天早上用意志力起床，靠意志力列清单，用意志力对抗拖延。结果呢？每天结束时的感受就一个字：<strong>累</strong>。</p>
+
+    <p>三个月前我开始用Claude AI重构我的一天。不是让AI替我做事，而是<strong>让AI帮我做决策、分解任务、预判障碍</strong>。效果超出预期：</p>
+    <ul>
+      <li>每天高质量时间多了 <strong>2小时以上</strong></li>
+      <li>任务完成率从55%提升到 <strong>82%</strong></li>
+      <li>晚上9点后不再工作，周末也不再焦虑</li>
+    </ul>
+
+    <p>这篇文章不聊虚的，直接给框架和提示词，你今晚就可以开始用。</p>
+
+    <h2>一、核心逻辑：AI做"预演"，人做"执行"</h2>
+
+    <p>大多数人对AI的用法是"帮我写东西"或"帮我想点子"。但真正提效的用法是<strong>"让AI模拟你的大脑，提前预演一天"</strong>。</p>
+
+    <p>具体来说，我每天早上花<strong>5分钟</strong>和Claude做以下对话：</p>
+
+    <h3>Step 1：早晨预演（用这个提示词）</h3>
+
+    <div class="prompt-box">今天是我效率最低的一天。我有这些待办：
+    [粘贴你的待办列表]
+
+    请帮我：
+    1. 识别今天最高价值的3件事（只做这3件，其他全部推迟）
+    2. 把这3件事拆解成25分钟一个的时间块
+    3. 标注每个时间块可能遇到的障碍，以及如何绕过
+    4. 建议我在哪个时间块做最难的事（大脑黄金时段）
+
+    请用简单直接的语言，不要废话。</div>
+
+    <h3>Step 2：中午复盘（5分钟）</h3>
+
+    <div class="prompt-box">现在是中午12:30。上午我完成了这些：
+    [描述完成情况]
+
+    遇到了这些问题：
+    [描述障碍]
+
+    请告诉我：
+    1. 下午的时间块需要如何调整
+    2. 哪些事可以合并或委托
+    3. 今晚要做什么"预演"让我明天不再踩同样的坑</div>
+
+    <h3>Step 3：晚间复盘（10分钟）</h3>
+
+    <div class="prompt-box">今天结束了。这是我的实际完成情况：
+    [描述]
+
+    这是我明天一定要改进的1件事：[描述]
+
+    请给我一个明天的"最优待办列表"模板，我明天直接填空使用。</div>
+
+    <div class="tip">
+      <strong>💡 关键原则：</strong>不要让AI替你安排时间——让AI帮你<strong>思考得更清楚</strong>。人的执行力是有限的，但决策质量可以由AI来保障。
+    </div>
+
+    <h2>二、我的一天时间块（供参考）</h2>
+
+    <p>以下是我的实际时间表，你可以直接复制修改：</p>
+
+    <ul>
+      <li><strong>7:00-7:30</strong>｜起床+洗漱，用AI做5分钟"今日预演"</li>
+      <li><strong>8:00-9:00</strong>｜深度工作A（最难的事，大脑黄金时段）</li>
+      <li><strong>9:00-9:15</strong>｜休息+咖啡</li>
+      <li><strong>9:15-10:30</strong>｜深度工作B（创意/写作任务）</li>
+      <li><strong>10:30-11:00</strong>｜处理邮件、消息、短任务（收尾）</li>
+      <li><strong>11:00-12:00</strong>｜用AI做中午复盘，调整下午计划</li>
+      <li><strong>12:00-14:00</strong>｜午餐+午休</li>
+      <li><strong>14:00-16:00</strong>｜下午高效时段（适合协作/沟通类任务）</li>
+      <li><strong>16:00-16:30</strong>｜收尾清单（清空零碎事项）</li>
+      <li><strong>16:30后</strong>｜不安排工作，做运动或休息</li>
+    </ul>
+
+    <h2>三、最常见的3个坑</h2>
+
+    <p><strong>坑1：把AI当清单工具</strong><br>
+    很多人问AI"我今天干什么"，然后把答案直接变成清单。但AI不知道你的精力周期、你的真实优先级。正确做法：先自己想清楚今天的大方向，再让AI帮你<strong>细化</strong>和<strong>排雷</strong>。</p>
+
+    <p><strong>坑2：计划排得太满</strong><br>
+    AI很勤奋，它会给你一个超级充实的计划。但人类的执行力是有波动的。我的经验是：<strong>只排70%的时段，留30%缓冲</strong>。意外永远会发生。</p>
+
+    <p><strong>坑3：不复盘就换方法</strong><br>
+    很多人试了1-2天就放弃了，因为效果不明显。但习惯的建立需要时间——至少给自己<strong>2周</strong>的试错期，期间每周做一次大复盘。</p>
+
+    <h2>四、下一步：今晚就开始</h2>
+
+    <p>方法很简单，但<strong>做</strong>才是关键。我的建议：</p>
+    <ol>
+      <li>把上面的提示词复制到Claude或ChatGPT</li>
+      <li>明早7点，闹钟响后先不刷手机，打开AI做5分钟预演</li>
+      <li>晚上睡前用AI做10分钟复盘</li>
+      <li>坚持7天，你会看到明显变化</li>
+    </ol>
+
+    <div class="cta">
+      <h3>📋 附：完整提示词模板包</h3>
+      <p>包含早/中/晚三个提示词 + 时间块模板表格<br>关注公众号「AI进化论」回复"时间块"免费获取</p>
+    </div>
+
+    <div class="related">
+      <h3>📚 相关阅读</h3>
+      <ul>
+        <li><a href="chatgpt-article-prompt.html">→ 一个提示词，让AI帮你写出能变现的公众号文章</a></li>
+        <li><a href="zapier-ai-workflow.html">→ Zapier + AI = 你的24小时自动化助理</a></li>
+        <li><a href="../index.html">→ 返回首页：探索更多AI工作流</a></li>
+      </ul>
+    </div>
+  </article>
+
+  <footer>
+    <p><a href="../index.html">AI进化论</a> · 让AI成为你的第二大脑</p>
+    <p style="margin-top: 0.5rem; font-size: 0.78rem;">本文含联盟链接</p>
+  </footer>
+</body>
+</html>
